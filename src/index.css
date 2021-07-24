@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Silkscreen';
+  src: url(./fonts/slkscr.ttf);
+}
+
+body {
+  background-image: url(./img/wallpaper.gif);
+  background-size: 100%;
+  width: 100%
+}
+
+@media (max-width: 768px) {
+  
+  body {
+    background-image: url(./img/wallpaperphone.gif);
+    width: 100%
+  }
+  
+}
