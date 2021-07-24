@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/biohackers-waller/static/css/main.12701da5.chunk.css",
+    "main.js": "/biohackers-waller/static/js/main.8cc75e18.chunk.js",
+    "main.js.map": "/biohackers-waller/static/js/main.8cc75e18.chunk.js.map",
+    "runtime-main.js": "/biohackers-waller/static/js/runtime-main.a855188c.js",
+    "runtime-main.js.map": "/biohackers-waller/static/js/runtime-main.a855188c.js.map",
+    "static/js/2.13f846fb.chunk.js": "/biohackers-waller/static/js/2.13f846fb.chunk.js",
+    "static/js/2.13f846fb.chunk.js.map": "/biohackers-waller/static/js/2.13f846fb.chunk.js.map",
+    "index.html": "/biohackers-waller/index.html",
+    "static/css/main.12701da5.chunk.css.map": "/biohackers-waller/static/css/main.12701da5.chunk.css.map",
+    "static/js/2.13f846fb.chunk.js.LICENSE.txt": "/biohackers-waller/static/js/2.13f846fb.chunk.js.LICENSE.txt",
+    "static/media/camrobot1.c1f627f5.gif": "/biohackers-waller/static/media/camrobot1.c1f627f5.gif",
+    "static/media/camrobot2.2a22359a.gif": "/biohackers-waller/static/media/camrobot2.2a22359a.gif",
+    "static/media/chicavr.9db8dc43.gif": "/biohackers-waller/static/media/chicavr.9db8dc43.gif",
+    "static/media/drone.87922698.gif": "/biohackers-waller/static/media/drone.87922698.gif",
+    "static/media/robotonmars.8ec6cfd7.gif": "/biohackers-waller/static/media/robotonmars.8ec6cfd7.gif",
+    "static/media/index.css": "/biohackers-waller/static/media/wallpaperphone.947b1183.gif",
+    "static/media/waiting.7e766fb0.gif": "/biohackers-waller/static/media/waiting.7e766fb0.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a855188c.js",
+    "static/js/2.13f846fb.chunk.js",
+    "static/css/main.12701da5.chunk.css",
+    "static/js/main.8cc75e18.chunk.js"
+  ]
+}
