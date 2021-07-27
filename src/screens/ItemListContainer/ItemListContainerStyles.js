@@ -2,7 +2,7 @@ export const ItemListContainerStyles = theme => {
 
     return ({
 
-        row1: {
+        row: {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
@@ -24,17 +24,13 @@ export const ItemListContainerStyles = theme => {
             display: 'inline-block',
             backgroundColor: 'rgba(19, 17, 17, 0.438)',
             borderRadius: '25px 25px 25px 25px',
-            width: '60%',
+            width: '65%',
         },
 
         items: {
             display: 'grid',
             alignItems: 'center',
             gridTemplateColumns: '1fr 1fr 1fr',
-        },
-
-        linkitems: {
-            color: 'transparent'
         },
 
         loading: {
@@ -44,18 +40,9 @@ export const ItemListContainerStyles = theme => {
             padding: 'auto'
         },
 
-
-        "@media (max-width: 1300px)": {
-
-            items: {
-                gridTemplateColumns: '1fr 1fr',
-            },
-
-        },
-
         "@media (max-width: 768px)": {
 
-            row1: {
+            row: {
                 margin: 'auto',
             },
 
@@ -68,9 +55,7 @@ export const ItemListContainerStyles = theme => {
                 top: '2em'
             },
 
-            container: {            
-                backgroundColor: 'rgba(19, 17, 17, 0.438)',
-                borderRadius: '25px 25px 25px 25px',
+            container: {         
                 width: '100%',
             },
 

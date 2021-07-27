@@ -4,29 +4,7 @@ export const NavbarStyles = theme => {
 
         navbar: {
             backgroundColor: 'rgba(19, 20, 18, 0.507)',
-            height: '5em',
-            marginTop: '1px',
-            width: '100%'
-        },
-
-        menu: {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5,auto)',
-            gridGap: '5px',
-            listStyleType: 'none',
-            paddingLeft: '85%',
-            marginTop: '-3em'
-        },
-
-        navItem: {
-            fontFamily: 'Silkscreen',
-            color: 'red',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            cursor: 'pointer',
-            margin: '3px 0px'
+            height: '5em'
         },
 
         brandingStyle: {
@@ -35,9 +13,8 @@ export const NavbarStyles = theme => {
         },
 
         logo: {
-            width: '7em',
             marginTop: '-1em',
-            marginLeft: '0.1%'
+            width: '7em'
         },
 
         tituloysubtitulo: {
@@ -61,48 +38,34 @@ export const NavbarStyles = theme => {
             marginTop: '-12%'
         },
 
-        dropdown: {
-            marginTop: '2%',
-            marginLeft: '-0.5%',
-            width: '10em',
-            justifyContent: 'center',
+        menu: {
+            display: 'flex',
+            flexDirection: 'row',
+            listStyleType: 'none',
+            marginTop: '-3rem',
+            paddingLeft: '85%'
         },
 
-        navItem2: {
+        navItem: {
             fontFamily: 'Silkscreen',
             color: 'red',
-            textDecoration: 'none',
+            margin: '5px'
+        },
+
+        dropdown: {
+            marginTop: '2.5%',
+            marginLeft: '-0.5%',
+            width: '10em'
+        },
+
+        menuItem: {
             justifyContent: 'center'
         },
 
-        "@media (max-width: 1800px)": {
-
-            logo: {
-                marginLeft: '3%'
-            },
-
-            menu: {
-                display: 'flex',
-                flexDirection: 'column',
-                marginTop: '-5em',
-                marginLeft: '-4em'
-            },
-
-            dropdown: {
-                marginTop: '2em',
-                marginLeft: '4.5%',
-                width: '10em',
-                justifyContent: 'center',
-            },
-
-            navItem2: {
-                fontFamily: 'Silkscreen',
-                fontSize: '15px',
-                color: 'red',
-                marginTop: '-3%',
-                marginLeft: 'auto',
-                justifyContent: 'center'
-            },
+        subItem: {
+            fontFamily: 'Silkscreen',
+            color: 'red',
+            textDecoration: 'none'
         },
 
         "@media (max-width: 768px)": {
@@ -111,10 +74,6 @@ export const NavbarStyles = theme => {
                 display: 'none'
             },
 
-            logo: {
-                marginLeft: '3%'
-            },
-
             menu: {
                 display: 'flex',
                 flexDirection: 'column',
@@ -123,20 +82,17 @@ export const NavbarStyles = theme => {
             },
 
             dropdown: {
-                marginTop: '2.5rem',
-                width: '9em',
-                height: '20em',
+                marginTop: '3rem',
                 marginLeft: '0.3em',
+                width: '9em'
             },
 
-            navItem2: {
-                fontFamily: 'Silkscreen',
+            subItem: {
                 fontSize: '15px',
-                color: 'red',
                 marginTop: '-3%',
-                marginLeft: 'auto',
+                marginLeft: '1.4%',
                 justifyContent: 'center'
-            },
+            }
         }
 
     })

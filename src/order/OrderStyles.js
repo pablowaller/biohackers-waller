@@ -2,6 +2,34 @@ export const OrderStyles = theme => {
 
     return ({
 
+        header: {
+            display: 'flex',
+            flexDirection: 'row'
+        },
+
+        dialog: {
+            borderRadius: '25px 25px 25px 25px'
+        },
+
+        dialogContent: {
+            backgroundColor: 'rgba(22, 22, 20, 0.87)',
+        },
+
+        botonClose: {
+            backgroundColor: '#C01F1F',
+            borderStyle: 'solid',
+            height: '3em',
+            marginTop: '4.5%',
+            cursor: 'pointer'
+        },
+
+        cruz: {
+            fontFamily: 'Silkscreen',
+            justifyContent: 'center',
+            color: 'white',
+            textShadow: 'none'
+        },
+
         letras: {
             fontFamily: 'Silkscreen',
             color: 'rgb(41, 209, 19)',
@@ -30,52 +58,22 @@ export const OrderStyles = theme => {
         },
 
         espera: {
+            borderRadius: '25px 25px 25px 25px',
             width: '33em',
-            borderRadius: '25px 25px 25px 25px'
-        },
-
-        
-        row3: {
-            display: 'flex',
-            flexDirection: 'row'
-        },
-
-        botonClose: {
-            backgroundColor: '#C01F1F',
-            borderStyle: 'solid',
-            height: '3em',
-            marginTop: '4.5%',
-            cursor: 'pointer'
-        },
-
-        cruz: {
-            fontFamily: 'Silkscreen',
-            justifyContent: 'center',
-            color: 'white',
-            textShadow: 'none'
-        },
-
-        dialog: {
-            borderRadius: '25px 25px 25px 25px'
-        },
-
-        dialogContent: {
-            backgroundColor: 'rgba(22, 22, 20, 0.87)',
         },
 
         "@media (max-width: 768px)": {
 
-
             botonClose: {
-                marginTop: '18%',
-                marginLeft: '10%'
+                margin: 'auto'
             },
-    
+
             espera: {
-                width: '15em',
-                borderRadius: '25px 25px 25px 25px'
-            },
+                width: '15em'
+            }
+
         }
+
     })
 
 }

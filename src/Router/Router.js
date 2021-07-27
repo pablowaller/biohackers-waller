@@ -8,7 +8,7 @@ import { NotFoundComponent } from '../components/NotFoundComponent/NotFoundCompo
 
 export const Router = () => {
     return <Switch>
-        <Route exact path="/">
+        <Route exact path="/biohackers-waller">
             <ItemListContainer />
         </Route>
         <Route path="/category/:category">
@@ -20,7 +20,7 @@ export const Router = () => {
         <Route path="/carrito">
             <Carrito />
         </Route>
-        <Route path="/notFound">
+        <Route path="/*">
             <NotFoundComponent />
         </Route>
     </Switch>

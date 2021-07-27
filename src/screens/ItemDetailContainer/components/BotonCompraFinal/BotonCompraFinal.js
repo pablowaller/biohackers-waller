@@ -12,10 +12,10 @@ export const BotonCompraFinal = props => {
 
     const { clickCancelar } = props;
 
-    return <>
-        <div className={classes.row2}>
-        <button className={classes.cancelar} onClick={() => clickCancelar(false)}><h3 className={classes.letrasboton}>CANCELAR COMPRA</h3></button>
-        <Link to={`/carrito`}><button className={classes.finalizar}><h3 className={classes.letrasboton}>FINALIZAR COMPRA</h3></button></Link>
+    return (
+        <div>
+            <button className={classes.cancelar} onClick={() => clickCancelar(false)}><h3 className={classes.letrasBoton}>CANCELAR COMPRA</h3></button>
+            <Link to={`/carrito`}><button className={classes.finalizar}><h3 className={classes.letrasBoton}>FINALIZAR COMPRA</h3></button></Link>
         </div>
-    </>
+    );
 }

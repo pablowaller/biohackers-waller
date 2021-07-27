@@ -21,50 +21,39 @@ export const ItemListContainer = () => {
 
 
     useEffect(() => {
-
         const productosCollection = database.collection("productos");
-
         let filtroProductos;
-
         if (category !== undefined && category !== null) {
-            filtroProductos = productosCollection.where('category', '==', category).get()
+            filtroProductos = productosCollection.where('category', '==', category).get();
         } else {
-            filtroProductos = productosCollection.get()
+            filtroProductos = productosCollection.get();
         }
 
         filtroProductos.then((response) => {
-            let filtrar = []
+            let filtrar = [];
             response.forEach((doc) => {
-                filtrar.push({ id: doc.id, ...doc.data() })
-            })
+                filtrar.push({ id: doc.id, ...doc.data() });
+            });
             setProductosAMostrar(filtrar)
-        }).catch(() => <Redirect to={'/notFound'}/>)
+        }).catch(() => <Redirect to={'/error404'}/>)
+    }, [category]);
 
-    }, [category])
-
-    return <>
-        {productosAMostrar.length === 0 ? (
-            <section>
-                <div className={classes.row1}>
-                    <img src={CamBot1} className={classes.cambot} alt='' />
-                    <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
-                    <img src={CamBot2} className={classes.cambot} alt='' />
-                </div>
-                <div className={classes.container}><h1 className={classes.loading}>CARGANDO...</h1></div>
-            </section>
-        ) : (
-            <section>
-                <div className={classes.row1}>
-                    <img src={CamBot1} className={classes.cambot} alt='' />
-                    <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
-                    <img src={CamBot2} className={classes.cambot} alt='' />
-                </div>
-                <div className={classes.container}>
+    return (
+        <section>
+            <div className={classes.row}>
+                <img src={CamBot1} className={classes.cambot} alt='' />
+                <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
+                <img src={CamBot2} className={classes.cambot} alt='' />
+            </div>
+            <div className={classes.container}>
+                {productosAMostrar.length === 0 ? (
+                    <h1 className={classes.loading}>CARGANDO...</h1>
+                ) : (
                     <div className={classes.items}>
                         <ItemList productos={productosAMostrar} />
                     </div>
-                </div>
-            </section>
-        )}
-    </>
+                )}
+            </div>
+        </section>
+    );
 }

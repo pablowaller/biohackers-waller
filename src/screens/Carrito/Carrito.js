@@ -12,49 +12,50 @@ export const TablaDeProductos = () => {
     const { productosCarrito, removeProducto } = useContext(CarritoContext);
     const classes = useStyles();
 
-    return <div className={classes.table}> 
-        <table className={classes.tableShop}>
-        <thead>
-            <tr>
-                <th><h3 className={classes.letras}>Producto</h3></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><h3 className={classes.letras}>Precio</h3></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><h3 className={classes.letras}>Cantidad</h3></th>
-                <th></th>
-                <th></th>
-                <th><h3 className={classes.letras}>Subtotal</h3></th>
-                <th></th>
-            </tr>
-        </thead>
+    return <>
+        <div className={classes.table}>
+            <table className={classes.tableShop}>
+                <thead>
+                    <tr>
+                        <th><h3 className={classes.letras}>Producto</h3></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><h3 className={classes.letras}>Precio</h3></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><h3 className={classes.letras}>Cantidad</h3></th>
+                        <th></th>
+                        <th></th>
+                        <th><h3 className={classes.letras}>Subtotal</h3></th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-        <tbody>
-            {productosCarrito.map((item, i) => {
+                <tbody>
+                    {productosCarrito.map((item, i) => {
 
-                return <tr key={i}>
-                    <td><h3 className={classes.letras}>{item.item.title}</h3></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><h3 className={classes.letras}>{item.item.price}</h3></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><h3 className={classes.letras}>{item.quantity}</h3></td>
-                    <td></td>
-                    <td></td>
-                    <td><h3 className={classes.letras}> ${item.quantity * item.item.price}</h3></td>
-                    <td><button className={classes.botonClose} onClick={e => removeProducto(item.item.id)}><h3 className={classes.cruz}>X</h3></button></td>
-                </tr>
-            })
-            }
-        </tbody>
-    </table>
-    </div>
+                        return <tr key={i}>
+                            <td><h3 className={classes.letras}>{item.item.title}</h3></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h3 className={classes.letras}>{item.item.price}</h3></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><h3 className={classes.letras}>{item.quantity}</h3></td>
+                            <td></td>
+                            <td></td>
+                            <td><h3 className={classes.letras}> ${item.quantity * item.item.price}</h3></td>
+                            <td><button className={classes.botonClose} onClick={e => removeProducto(item.item.id)}><h3 className={classes.cruz}>X</h3></button></td>
+                        </tr>
+                    })}
+                </tbody>
+            </table>
+        </div>
+    </>
 }
 
 const CarritoVacio = () => {
@@ -76,11 +77,14 @@ export const Carrito = () => {
     const { productosCarrito, subtotal } = useContext(CarritoContext);
 
 
-    return <div className={classes.containerCarrito}>
-        {productosCarrito.length === 0 ? (<><CarritoVacio /></>) : (
-            <>    <TablaDeProductos productosCarrito={productosCarrito} subtotal={subtotal} />
-                <Order totalPrice={subtotal}/>
-            </>
-        )}
-    </div>
+    return (
+        <div className={classes.containerCarrito}>
+            {productosCarrito.length === 0 ? (<><CarritoVacio /></>) : (
+                <>
+                    <TablaDeProductos productosCarrito={productosCarrito} subtotal={subtotal} />
+                    <Order totalPrice={subtotal} />
+                </>
+            )}
+        </div>
+    );
 }

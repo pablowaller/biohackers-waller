@@ -6,6 +6,7 @@ export const CarritoStyles = theme => {
             display: 'inline-block',
             backgroundColor: 'rgba(19, 17, 17, 0.507)',
             borderRadius: '25px 25px 25px 25px',
+            marginTop: '3em',
             width: '60%',
         },
 
@@ -67,31 +68,16 @@ export const CarritoStyles = theme => {
         "@media (max-width: 768px)": {
 
             containerCarrito: {
-                display: 'inline-block',
-                backgroundColor: 'rgba(19, 17, 17, 0.507)',
-                borderRadius: '25px 25px 25px 25px',
                 width: '100%',
-                marginTop: '3%'
             },
 
             table: {
                 overflowX: 'scroll',
-                textAlign: 'center',
-                justifyContent: 'center'
-            },
-
-            tableShop: {
-                textAlign: 'center',
-                justifyContent: 'center'
             },
 
             letras: {
                 fontSize: '14px'
-            },
-
-            ancho: {
-                width: '100%'
-            },
+            }
 
         }
 

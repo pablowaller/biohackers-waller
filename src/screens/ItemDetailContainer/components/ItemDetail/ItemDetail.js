@@ -9,19 +9,19 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ItemDetailStyles(theme));
 
-export const ItemDetail = ( {producto} ) => {
+export const ItemDetail = ({ producto }) => {
 
     const classes = useStyles();
-    const [cantidad, setCantidad] = useState(0)
-    const [click, setClick] = useState(false)
-    const {addProducto, clear} = useContext(CarritoContext)
+    const [cantidad, setCantidad] = useState(0);
+    const [click, setClick] = useState(false);
+    const { addProducto, clear } = useContext(CarritoContext);
 
-    const { title, description, price, stock, pictureUrl } = producto
+    const { title, description, price, stock, pictureUrl } = producto;
 
     const onAdd = cantidad => {
-        setCantidad(cantidad); 
+        setCantidad(cantidad);
         setClick(true);
-        addProducto({item: producto, quantity: cantidad}) 
+        addProducto({ item: producto, quantity: cantidad });
     }
 
     const clickCancelar = () => {
@@ -30,8 +30,8 @@ export const ItemDetail = ( {producto} ) => {
     }
 
 
-    return <>
-        <div className={classes.itemDetail}>
+    return (
+        <div>
             <Grid container
                 direction="row"
                 justify="center"
@@ -49,18 +49,15 @@ export const ItemDetail = ( {producto} ) => {
                     <h3 className={classes.title}>{title}</h3>
                     <h3 className={classes.description}>{description}</h3>
                     <h4 className={classes.price}>${price}</h4>
-                    
                     {
                         click ?
-                            <BotonCompraFinal clickCancelar={clickCancelar} />
+                            <BotonCompraFinal className={classes.botones} clickCancelar={clickCancelar} />
                             :
                             <Counter stock={stock} initial={1} cantidad={cantidad} agregarProductos={onAdd} />
                     }
-
                     <h3 className={classes.stock}>{stock} UNIDADES EN STOCK</h3>
-
                 </Grid>
             </Grid>
         </div>
-    </>
+    );
 }

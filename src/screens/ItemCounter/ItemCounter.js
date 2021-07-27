@@ -20,13 +20,15 @@ export const Counter = props => {
         setCount(count - 1);
     };
 
-    return <div className={classes.contador}>
-        <div className={classes.sumarYRestar}>
-            <button onClick={handleDecrement} className={classes.boton} disabled={count === initial ? true : false}><b className={classes.signo}>-</b></button>
-            <h3 className={classes.numero}>{count}</h3>
-            <button onClick={handleIncrement} className={classes.boton} disabled={count < stock ? false : true}><b className={classes.signo}>+</b></button>
+    return (
+        <div className={classes.contador}>
+            <div className={classes.sumarYRestar}>
+                <button onClick={handleDecrement} className={classes.boton} disabled={count === initial ? true : false}><b className={classes.signo}>-</b></button>
+                <h3 className={classes.numero}>{count}</h3>
+                <button onClick={handleIncrement} className={classes.boton} disabled={count < stock ? false : true}><b className={classes.signo}>+</b></button>
+            </div>
+            <button className={classes.agregar} onClick={() => agregarProductos(count)} disabled={stock === 0 ? true : false}><h3 className={classes.letrasBoton}>AGREGAR AL CARRITO</h3></button>
+            {count === stock}
         </div>
-        <button className={classes.agregar} onClick={() => agregarProductos(count)} disabled={stock === 0 ? true : false}><h3 className={classes.letrasboton}>AGREGAR AL CARRITO</h3></button>
-        {count === stock}
-    </div>
+    );
 }

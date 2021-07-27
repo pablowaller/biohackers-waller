@@ -7,9 +7,8 @@ export const NotFoundComponentStyles = theme => {
             justifyContent: 'center',
             backgroundColor: 'rgba(19, 17, 17, 0.438)',
             borderRadius: '25px 25px 25px 25px',
-            height: '40em',
-            width: '80em',
-            marginTop: '1em'
+            width: '60%',
+            marginTop: '3%'
         },
 
         error: {
@@ -24,7 +23,8 @@ export const NotFoundComponentStyles = theme => {
 
         volver: {
             backgroundColor: 'rgb(233, 30, 240)',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            marginTop: '3%'
         },
 
         letras: {
@@ -37,16 +37,11 @@ export const NotFoundComponentStyles = theme => {
         "@media (max-width: 768px)": {
 
             container: {
-                display: 'flex',
-                flexDirection: 'column',
-                backgroundColor: 'rgba(19, 17, 17, 0.438)',
-                borderRadius: '25px 25px 25px 25px',
-                width: '100%',
+                width: '100%'
             },
 
             robotOnMars: {
-                width: '15em',
-                borderRadius: '25px 25px 25px 25px'
+                width: '15em'
             }
         }
 

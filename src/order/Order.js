@@ -8,16 +8,16 @@ import { makeStyles } from '@material-ui/core';
 import Waiting from './../img/waiting.gif'
 import { Dialog, DialogContent } from '@material-ui/core';
 
-const ordersCollection = database.collection("orders");
+const ordensCollection = database.collection("ordens");
 const productosCollection = database.collection("productos");
 
 const useStyles = makeStyles((theme) => OrderStyles(theme));
 
-const addOrderDocument = (order) => {
-    return ordersCollection.add(order);
+const addOrdenDocumento = (orden) => {
+    return ordensCollection.add(orden);
 }
 
-const getProductosByCartArray = (items) => {
+const getProductosByCarritoArray = (items) => {
     return productosCollection.where(docIdFieldPath, 'in', items.map(i => i.item.id)).get();
 }
 
@@ -28,35 +28,35 @@ export const Order = props => {
 
     const classes = useStyles();
 
-    const { totalPrice, addOrderId } = props;
+    const { totalPrice } = props;
     const { productosCarrito, clear } = useContext(CarritoContext);
 
-    const [openOrderDialog, setOpenOrderDialog] = useState(false);
-    const [showForm, setShowForm] = useState(true);
-    const [orderFinished, setOrderFinished] = useState(false);
-    const [orderError, setOrderError] = useState(false);
+    const [openOrdenDialog, setOpenOrdenDialog] = useState(false);
+    const [mostrarFormulario, setMostrarFormulario] = useState(true);
+    const [ordenFinalizada, setOrdenFinalizada] = useState(false);
+    const [ordenError, setOrdenError] = useState(false);
 
-    const [outOfStockArray, setOutOfStockArray] = useState([]);
-    const [orderId, setOrderId] = useState();
+    const [arraySinStock, setArraySinStock] = useState([]);
+    const [ordenId, setOrdenId] = useState();
 
 
-    const handleOpenOrder = () => {
-        setOpenOrderDialog(true);
+    const handleOpenOrden = () => {
+        setOpenOrdenDialog(true);
     };
 
-    const handleCloseOrder = () => {
-        if (orderFinished && !orderError) {
+    const handleCloseOrden = () => {
+        if (ordenFinalizada && !ordenError) {
             clear();
         }
-        setOpenOrderDialog(false);
-        setShowForm(true);
-        setOrderFinished(false);
-        setOrderError(false);
-        setOutOfStockArray([]);
-        setOrderId();
+        setOpenOrdenDialog(false);
+        setMostrarFormulario(true);
+        setOrdenFinalizada(false);
+        setOrdenError(false);
+        setArraySinStock([]);
+        setOrdenId();
     };
 
-    const generateOrder = (comprador) => {
+    const generarOrden = (comprador) => {
         const date = new Date();
         let newProductosCarrito = [];
         productosCarrito.forEach(productoAgregado => {
@@ -69,38 +69,37 @@ export const Order = props => {
             newProductosCarrito.push(data);
         });
 
-        const newOrder = {
+        const nuevaOrden = {
             comprador: comprador,
             items: newProductosCarrito,
             date: date,
             total: totalPrice
         }
-        return newOrder;
+        return nuevaOrden;
     }
 
-    const addNewOrder = (comprador) => {
-        const newOrder = generateOrder(comprador);
+    const addNuevaOrden = (comprador) => {
+        const nuevaOrden = generarOrden(comprador);
         try {
-            addOrderDocument(newOrder).then((docRef) => {
-                setOrderId(docRef.id);
-                addOrderId(docRef.id);
+            addOrdenDocumento(nuevaOrden).then((docRef) => {
+                setOrdenId(docRef.id);
             })
 
                 .catch((error) => {
-                    console.error("Error adding document: ", error);
+                    alert("No se pudo agregar el documento: ", error);
                 });
 
         } catch (error) {
-            console.log("Firebase add doc error:", error);
+            alert("Error al agregar a la base de datos Firebase:", error);
         }
     }
 
 
-    const addOrderAndUpdateStock = (comprador) => {
+    const addOrdenYActualizarStock = (comprador) => {
         const newBatch = batch();
-        setShowForm(false);
+        setMostrarFormulario(false);
         let outOfStock = [];
-        getProductosByCartArray(productosCarrito).then((querySnapshot) => {
+        getProductosByCarritoArray(productosCarrito).then((querySnapshot) => {
             querySnapshot.docs.forEach((docSnapshot, index) => {
                 const productData = docSnapshot.data();
                 const cantidad = productosCarrito[index].quantity;
@@ -113,54 +112,56 @@ export const Order = props => {
 
             if (outOfStock.length === 0) {
                 newBatch.commit().then(() => {
-                    addNewOrder(comprador);
+                    addNuevaOrden(comprador);
                 });
             } else {
-                setOutOfStockArray(outOfStock);
-                setOrderError(true);
+                setArraySinStock(outOfStock);
+                setOrdenError(true);
             }
         }).finally(() => {
-            setOrderFinished(true);
+            setOrdenFinalizada(true);
         });
     }
 
-    return <div>
-        <div className={classes.carritoTotal}>
-            <h4 className={classes.total}>Total del carrito: ${totalPrice}</h4>
-            <button className={classes.finalizar} onClick={handleOpenOrder}><p className={classes.letrasBoton}>Finalizar Compra</p></button>
-        </div>
-        <Dialog className={classes.dialog} onClose={handleCloseOrder} open={openOrderDialog}>
-            <DialogContent className={classes.dialogContent}>
-                {
-                    showForm ? <BuyerForm addOrder={addOrderAndUpdateStock} totalPrice={totalPrice} ended={!showForm} /> : <></>
-                }
+    return (
+        <div>
+            <div className={classes.carritoTotal}>
+                <h4 className={classes.total}>Total del carrito: ${totalPrice}</h4>
+                <button className={classes.finalizar} onClick={handleOpenOrden}><p className={classes.letrasBoton}>Finalizar Compra</p></button>
+            </div>
+            <Dialog className={classes.dialog} onClose={handleCloseOrden} open={openOrdenDialog}>
+                <DialogContent className={classes.dialogContent}>
+                    {
+                        mostrarFormulario ? <BuyerForm addOrden={addOrdenYActualizarStock} totalPrice={totalPrice} ended={!mostrarFormulario} /> : <></>
+                    }
 
-                {
-                    (orderFinished && orderError) ? <>
-                        <h1 className={classes.letras}>No fue posible ejecutar la compra</h1>
-                        <h2 className={classes.letras}>Productos sin el stock pedido: </h2>
-                        <ul>
-                            {
-                                outOfStockArray.map((productoAgregado, i) => {
-                                    return (
-                                        <li key={i}>{productoAgregado.titulo} pedido por {productoAgregado.cantidad} unidades.</li>
-                                    );
-                                })
-                            }
-                        </ul>
-                    </> : (orderFinished && !orderError) ? <>
-                        <div className={classes.row3}>
-                            <h1 className={classes.letras}>¡TU COMPRA HA SIDO REALIZADA CON EXITO!</h1>
-                            <button className={classes.botonClose} onClick={handleCloseOrder}>
-                                <p className={classes.cruz}>X</p>
-                            </button>
-                        </div>
-                        <img src={Waiting} className={classes.espera} alt='' />
-                        <h4 className={classes.letras}>AGUARDE LA LLEGADA DEL DRONE CON SU PRODUCTO</h4>
-                        <h3 className={classes.letras}>ID de compra: {orderId}</h3>
-                    </> : <></>
-                }
-            </DialogContent>
-        </Dialog>
-    </div>
+                    {
+                        (ordenFinalizada && ordenError) ? <>
+                            <h1 className={classes.letras}>No fue posible ejecutar la compra</h1>
+                            <h2 className={classes.letras}>Productos sin el stock pedido: </h2>
+                            <ul>
+                                {
+                                    arraySinStock.map((productoAgregado, i) => {
+                                        return (
+                                            <li key={i}>{productoAgregado.titulo} pedido por {productoAgregado.cantidad} unidades.</li>
+                                        );
+                                    })
+                                }
+                            </ul>
+                        </> : (ordenFinalizada && !ordenError) ? <>
+                            <div className={classes.header}>
+                                <h1 className={classes.letras}>¡TU COMPRA HA SIDO REALIZADA CON EXITO!</h1>
+                                <button className={classes.botonClose} onClick={handleCloseOrden}>
+                                    <p className={classes.cruz}>X</p>
+                                </button>
+                            </div>
+                            <img src={Waiting} className={classes.espera} alt='' />
+                            <h4 className={classes.letras}>AGUARDE LA LLEGADA DEL DRONE CON SU PRODUCTO</h4>
+                            <h3 className={classes.letras}>ID de compra: {ordenId}</h3>
+                        </> : <></>
+                    }
+                </DialogContent>
+            </Dialog>
+        </div>
+    );
 }

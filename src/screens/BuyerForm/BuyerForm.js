@@ -25,7 +25,7 @@ const expresionesRegulares = new BuyerInfo(
 export const BuyerForm = props => {
 
     const classes = useStyles();
-    const { ended, addOrder, totalPrice } = props;
+    const { ended, addOrden, totalPrice } = props;
     const [inputErrors, setInputErrors] = useState(errorInitialState);
     const [dataDelComprador, setDataDelComprador] = useState(formInitialState);
     const [formError, setFormError] = useState(false);
@@ -65,7 +65,7 @@ export const BuyerForm = props => {
         }
         if (formValidation) {
             setFormError(false);
-            addOrder(dataDelComprador);
+            addOrden(dataDelComprador);
         } else {
             setFormError(true);
         }
@@ -78,38 +78,40 @@ export const BuyerForm = props => {
         }
     }, [ended]);
 
-    return <form onSubmit={submitOrder}>
-        <h3 className={classes.letras}>RELLENE LOS CAMPOS</h3>
-        <input className={classes.input} placeholder="Ingresa tu nombre." name="nombre" label="Nombre" required onChange={validarCampos} />
-        <br></br>
-        {inputErrors['nombre'] ? <div className={classes.margin}><b className={classes.letrasRojas}>
-            El nombre solo debe estar compuesto por letras
-        </b></div> : <></>}
-        <br></br>
-        <input className={classes.input} placeholder="Ingresa tu apellido" name="apellido" label="Apellido" required onChange={validarCampos} />
-        <br></br>
-        {inputErrors['apellido'] ? <div className={classes.margin}><b className={classes.letrasRojas}>
-            El apellido solo debe estar compuesto por letras
-        </b></div> : <></>}
-        <br></br>
-        <input className={classes.input} placeholder="Introducí tu email." name="email" label="Email" required onChange={validarCampos} />
-        <br></br>
-        {inputErrors['email'] ? <div className={classes.margin}><b className={classes.letrasRojas}>
-            Ingrese un correo electronico valido
-        </b></div> : <></>}
-        <br></br>
-        <input className={classes.input} placeholder="Confirmar Email." name="confirmacionEmail" required onChange={confirmarCorreo} />
-        <br></br>
-        {inputErrors['confirmacionEmail'] ? <div className={classes.margin}>
-            <b className={classes.letrasRojas}>
-                Los dos correos deben coincidir
+    return (
+        <form onSubmit={submitOrder}>
+            <h3 className={classes.titulo}>RELLENE LOS CAMPOS</h3>
+            <input className={classes.input} placeholder="Ingresa tu nombre." name="nombre" label="Nombre" required onChange={validarCampos} />
+            <br></br>
+            {inputErrors['nombre'] ? <div className={classes.margin}><b className={classes.advertencia}>
+                El nombre solo debe estar compuesto por letras
             </b></div> : <></>}
-        <div className={classes.row4}>
-            <div className={classes.total}> Total: ${totalPrice}</div>
-            <button className={classes.confirmar} type='submit'>
-                <p className={classes.letrasBoton}>CONFIRMAR PAGO</p>
-            </button>
-        </div>
-        {formError ? <div className={classes.margin}><b className={classes.letrasRojas}>Revise los datos del formulario.</b></div> : <></>}
-    </form>
+            <br></br>
+            <input className={classes.input} placeholder="Ingresa tu apellido" name="apellido" label="Apellido" required onChange={validarCampos} />
+            <br></br>
+            {inputErrors['apellido'] ? <div className={classes.margin}><b className={classes.advertencia}>
+                El apellido solo debe estar compuesto por letras
+            </b></div> : <></>}
+            <br></br>
+            <input className={classes.input} placeholder="Introducí tu email." name="email" label="Email" required onChange={validarCampos} />
+            <br></br>
+            {inputErrors['email'] ? <div className={classes.margin}><b className={classes.advertencia}>
+                Ingrese un correo electronico valido
+            </b></div> : <></>}
+            <br></br>
+            <input className={classes.input} placeholder="Confirmar Email." name="confirmacionEmail" required onChange={confirmarCorreo} />
+            <br></br>
+            {inputErrors['confirmacionEmail'] ? <div className={classes.margin}>
+                <b className={classes.advertencia}>
+                    Los dos correos deben coincidir
+                </b></div> : <></>}
+            <div className={classes.column}>
+                <h4 className={classes.total}>Total: ${totalPrice}</h4>
+                <button className={classes.confirmar} type='submit'>
+                    <p className={classes.letrasBoton}>CONFIRMAR PAGO</p>
+                </button>
+            </div>
+            {formError ? <div className={classes.margin}><b className={classes.advertencia}>Revise los datos del formulario.</b></div> : <></>}
+        </form>
+    );
 }

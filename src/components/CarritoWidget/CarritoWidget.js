@@ -16,20 +16,17 @@ export const CarritoWidget = () => {
 
     const DroneFlotante = () => {
 
-        return  <div className={classes.carritoWidget}>
-                <Link to={`/carrito`} style={{ color: 'transparent' }}>
-                    <div className={classes.carritoWidget}><img src={Drone} className={classes.drone} alt='' /></div>
-                    <h3 className={classes.letras}>TU COMPRA ({productosQuantity})</h3>
-                </Link>
-            </div>
+        return <div>
+            <Link to={`/carrito`} className={classes.link}>
+                <img src={Drone} className={classes.drone} alt='' />
+                <h2 className={classes.letras}>TU COMPRA ({productosQuantity})</h2>
+            </Link>
+        </div>
     }
 
-    return <>
-            {
-                productosCarrito.length !== 0 ?
-                    <section>
-                        <DroneFlotante />
-                    </section> : <></>
-            }
-        </>
+    return (
+        productosCarrito.length !== 0 ?
+            <DroneFlotante />
+            : <></>
+    );
 }

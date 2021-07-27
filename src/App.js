@@ -12,13 +12,15 @@ const App = props => {
 
   return <>
     <div className="App">
-      <CarritoComponentContext>
-        <BrowserRouter>
-          <Navbar />
-          <Router/>
-          <CarritoWidget />
-        </BrowserRouter>
-      </CarritoComponentContext>
+      <main>
+        <CarritoComponentContext>
+          <BrowserRouter>
+            <Navbar />
+            <Router />
+            <CarritoWidget />
+          </BrowserRouter>
+        </CarritoComponentContext>
+      </main>
     </div>
   </>
 }

@@ -6,11 +6,11 @@ export const ItemStyles = theme => {
             fontFamily: 'Silkscreen',
             color: 'rgb(41, 209, 19)',
             textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
-          },
+        },
 
         img: {
-            width: '10em',
-            margin: 'auto'
+            margin: 'auto',
+            width: '10em'
         },
 
         price: {
@@ -21,7 +21,11 @@ export const ItemStyles = theme => {
         description: {
             fontFamily: 'Silkscreen',
             color: 'rgb(241, 241, 241)',
-          },          
+        },
+
+        link: {
+            color: 'transparent'
+        },
 
         "@media (max-width: 768px)": {
 
@@ -31,13 +35,13 @@ export const ItemStyles = theme => {
 
             img: {
                 margin: 'auto',
-                width: '14em',
+                width: '15em',
             },
 
             description: {
                 fontSize: '15px'
             }
-        },
+        }
 
     })
 

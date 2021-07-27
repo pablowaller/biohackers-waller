@@ -16,7 +16,6 @@ export const ItemCounterStyles = theme => {
             fontFamily: 'Silkscreen',
             color: 'rgb(41, 209, 19)',
             textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
-            marginTop: '8%'
         },
 
         boton: {
@@ -39,43 +38,11 @@ export const ItemCounterStyles = theme => {
             cursor: 'pointer'
         },
 
-        cancelar: {
-            backgroundColor: 'rgb(240, 30, 30)',
-            cursor: 'pointer'
-        },
-
-        finalizar: {
-            backgroundColor: 'rgb(31, 207, 7)',
-            cursor: 'pointer'
-        },
-
-        botonclose: {
-            borderStyle: 'solid',
-            display: 'inline-block',
-            backgroundColor: 'rgb(240, 30, 30)',
-            height: '3em',
-            width: '3em',
-            marginLeft: '1em',
-            borderRadius: '25px 25px 25px 25px',
-            cursor: 'pointer'
-        },
-
-        letrasboton: {
+        letrasBoton: {
             fontFamily: 'Silkscreen',
             justifyContent: 'center',
             color: 'white',
             textShadow: 'none'
-        },
-
-        '@media(max - width: 768px)': {
-
-            boton: {
-                padding: '20px'
-            },
-
-            numero: {
-                fontSize: '14px'
-            }
         }
 
     })
