@@ -41,9 +41,9 @@ export const ItemListContainer = () => {
     return (
         <section>
             <div className={classes.row}>
-                <img src={CamBot1} className={classes.cambot} alt='' />
+                <img src={CamBot1} className={classes.cambot} alt='Cambot' />
                 <h3 className={classes.bienvenida}>BIENVENIDOS A LA PRIMERA TIENDA DE PRODUCTOS BIOTECNOLOGICOS DE ARGENTINA 2045</h3>
-                <img src={CamBot2} className={classes.cambot} alt='' />
+                <img src={CamBot2} className={classes.cambot} alt='Cambot' />
             </div>
             <div className={classes.container}>
                 {productosAMostrar.length === 0 ? (

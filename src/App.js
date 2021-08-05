@@ -10,9 +10,8 @@ import './App.css';
 
 const App = props => {
 
-  return <>
+  return (
     <div className="App">
-      <main>
         <CarritoComponentContext>
           <BrowserRouter>
             <Navbar />
@@ -20,9 +19,8 @@ const App = props => {
             <CarritoWidget />
           </BrowserRouter>
         </CarritoComponentContext>
-      </main>
     </div>
-  </>
+  )
 }
 
 export default App;

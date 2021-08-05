@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ItemDetail } from './components/ItemDetail/ItemDetail'
 import { database } from './../../firebase/Firebase'
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ItemDetailContainerStyles } from './ItemDetailContainerStyles'
 import { makeStyles } from '@material-ui/core';
 
@@ -37,6 +37,6 @@ export const ItemDetailContainer = () => {
         <ItemDetail producto={item} />
       )}
     </div>
-    {error ? <Redirect to={'/error404'} /> : ''}
+    {error ? alert('Se agotó el stock') : ''}
   </>
 }

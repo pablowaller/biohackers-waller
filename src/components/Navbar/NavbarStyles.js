@@ -14,7 +14,7 @@ export const NavbarStyles = theme => {
 
         logo: {
             marginTop: '-1em',
-            width: '7em'
+            width: '7rem'
         },
 
         tituloysubtitulo: {
@@ -25,7 +25,7 @@ export const NavbarStyles = theme => {
 
         titulo: {
             fontFamily: 'Silkscreen',
-            fontSize: '3em',
+            fontSize: '3rem',
             color: 'red',
             textAlign: 'center',
             marginTop: '1%',
@@ -33,7 +33,7 @@ export const NavbarStyles = theme => {
 
         subtitulo: {
             fontFamily: 'Silkscreen',
-            fontSize: '1em',
+            fontSize: '1rem',
             color: 'rgb(41, 209, 19)',
             marginTop: '-12%'
         },
@@ -43,7 +43,7 @@ export const NavbarStyles = theme => {
             flexDirection: 'row',
             listStyleType: 'none',
             marginTop: '-3rem',
-            paddingLeft: '85%'
+            marginLeft: '85rem'
         },
 
         navItem: {

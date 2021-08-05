@@ -2,6 +2,10 @@ export const ItemStyles = theme => {
 
     return ({
 
+        card: {
+            backgroundColor: 'transparent'
+        },
+
         title: {
             fontFamily: 'Silkscreen',
             color: 'rgb(41, 209, 19)',

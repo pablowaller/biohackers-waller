@@ -18,18 +18,9 @@ export const TablaDeProductos = () => {
                 <thead>
                     <tr>
                         <th><h3 className={classes.letras}>Producto</h3></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
                         <th><h3 className={classes.letras}>Precio</h3></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
                         <th><h3 className={classes.letras}>Cantidad</h3></th>
-                        <th></th>
-                        <th></th>
                         <th><h3 className={classes.letras}>Subtotal</h3></th>
-                        <th></th>
                     </tr>
                 </thead>
 
@@ -38,16 +29,8 @@ export const TablaDeProductos = () => {
 
                         return <tr key={i}>
                             <td><h3 className={classes.letras}>{item.item.title}</h3></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                             <td><h3 className={classes.letras}>{item.item.price}</h3></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                             <td><h3 className={classes.letras}>{item.quantity}</h3></td>
-                            <td></td>
-                            <td></td>
                             <td><h3 className={classes.letras}> ${item.quantity * item.item.price}</h3></td>
                             <td><button className={classes.botonClose} onClick={e => removeProducto(item.item.id)}><h3 className={classes.cruz}>X</h3></button></td>
                         </tr>
@@ -80,10 +63,10 @@ export const Carrito = () => {
     return (
         <div className={classes.containerCarrito}>
             {productosCarrito.length === 0 ? (<><CarritoVacio /></>) : (
-                <>
+                <div>
                     <TablaDeProductos productosCarrito={productosCarrito} subtotal={subtotal} />
                     <Order totalPrice={subtotal} />
-                </>
+                </div>
             )}
         </div>
     );

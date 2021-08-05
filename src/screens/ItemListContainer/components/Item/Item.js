@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Card from "@material-ui/core/Card";
 import CardMedia from '@material-ui/core/CardMedia';
 import { ItemStyles } from './ItemStyles'
 import { makeStyles } from '@material-ui/core';
@@ -15,20 +16,22 @@ export const Item = ({ producto }) => {
     return (
         <div className={classes.item}>
             <Link to={`/product/${id}`} className={classes.link}>
-                <CardMedia
-                    className={classes.img}
-                    component='img'
-                    image={pictureUrl}
-                    title={title}
-                    alt={title}
-                />
-                <div>
-                    <div className='row--1'>
-                        <h3 className={classes.title}>{title}</h3>
-                        <h4 className={classes.price}>${price}</h4>
+                <Card className={classes.card}>
+                    <CardMedia
+                        className={classes.img}
+                        component='img'
+                        image={pictureUrl}
+                        title={title}
+                        alt={title}
+                    />
+                    <div>
+                        <div className='row--1'>
+                            <h3 className={classes.title}>{title}</h3>
+                            <h4 className={classes.price}>${price}</h4>
+                        </div>
+                        <h5 className={classes.description}>{description}</h5>
                     </div>
-                    <h5 className={classes.description}>{description}</h5>
-                </div>
+                </Card>
             </Link>
         </div>
     );
