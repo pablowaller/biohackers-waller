@@ -7,7 +7,6 @@ import { ItemList } from './components/ItemList/ItemList';
 import { database } from './../../firebase/Firebase'
 import { makeStyles } from '@material-ui/core';
 
-
 const useStyles = makeStyles((theme) => ItemListContainerStyles(theme));
 
 
@@ -35,7 +34,7 @@ export const ItemListContainer = () => {
                 filtrar.push({ id: doc.id, ...doc.data() });
             });
             setProductosAMostrar(filtrar)
-        }).catch(() => <Redirect to={'/error404'}/>)
+        }).catch(() => <Redirect to={'/error404'} />)
     }, [category]);
 
     return (
@@ -49,7 +48,7 @@ export const ItemListContainer = () => {
                 {productosAMostrar.length === 0 ? (
                     <h1 className={classes.loading}>CARGANDO...</h1>
                 ) : (
-                    <div className={classes.items}>
+                    <div container className={classes.items}>
                         <ItemList productos={productosAMostrar} />
                     </div>
                 )}

@@ -46,8 +46,13 @@ export const OrderStyles = theme => {
             margin: 'auto'
         },
 
-        finalizar: {
-            backgroundColor: 'rgb(233, 30, 240)',
+        cancelar: {
+            backgroundColor: 'rgb(240, 30, 30)',
+            cursor: 'pointer',
+        },
+
+        generar: {
+            backgroundColor: 'rgb(31, 207, 7)',
             cursor: 'pointer'
         },
 

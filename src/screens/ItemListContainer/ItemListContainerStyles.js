@@ -28,9 +28,8 @@ export const ItemListContainerStyles = theme => {
         },
 
         items: {
-            display: 'grid',
-            alignItems: 'center',
-            gridTemplateColumns: '1fr 1fr 1fr',
+            display: 'flex',
+            flexDirection: 'row'
         },
 
         loading: {

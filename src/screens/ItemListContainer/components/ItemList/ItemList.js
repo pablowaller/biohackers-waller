@@ -4,8 +4,8 @@ import { Item } from '../Item/Item'
 export const ItemList = ({ productos }) => {
 
    return (
-      productos.map((element, i) => {
-         return <div key={i}>
+      productos.map((element, id) => {
+         return <div key={id}>
             <Item producto={element} />
          </div>
       })

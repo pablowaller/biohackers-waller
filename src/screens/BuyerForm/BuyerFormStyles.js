@@ -10,8 +10,7 @@ export const BuyerFormStyles = theme => {
 
         input: {
             height: '3.5em',
-            borderRadius: '25px 25px 25px 25px ',
-            backgroundColor: 'rgb(63, 191, 191)'
+            borderRadius: '25px 25px 25px 25px '
         },
 
         advertencia: {

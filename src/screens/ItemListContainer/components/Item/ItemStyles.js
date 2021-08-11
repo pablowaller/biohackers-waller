@@ -3,7 +3,7 @@ export const ItemStyles = theme => {
     return ({
 
         card: {
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
         },
 
         title: {

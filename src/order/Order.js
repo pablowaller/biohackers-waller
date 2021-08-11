@@ -127,7 +127,8 @@ export const Order = props => {
         <div>
             <div className={classes.carritoTotal}>
                 <h4 className={classes.total}>Total del carrito: ${totalPrice}</h4>
-                <button className={classes.finalizar} onClick={handleOpenOrden}><p className={classes.letrasBoton}>Finalizar Compra</p></button>
+                <button className={classes.cancelar} onClick={clear}><p className={classes.letrasBoton}>Cancelar Compra</p></button>
+                <button className={classes.generar} onClick={handleOpenOrden}><p className={classes.letrasBoton}>Generar Orden de Compra</p></button>
             </div>
             <Dialog className={classes.dialog} onClose={handleCloseOrden} open={openOrdenDialog}>
                 <DialogContent className={classes.dialogContent}>

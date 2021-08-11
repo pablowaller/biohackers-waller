@@ -49,7 +49,7 @@ const CarritoVacio = () => {
     return <>
         <h3 className={classes.letras}>NO HAY PRODUCTOS EN EL CARRITO :(</h3>
         <div>
-            <button className={classes.volver} onClick={() => history.push(`/`)}><p className={classes.letrasBoton}>Volver al inicio</p></button>
+            <button className={classes.volver} onClick={() => history.push(`/biohackers-waller`)}><p className={classes.letrasBoton}>Volver al inicio</p></button>
         </div>
     </>
 }
@@ -62,7 +62,7 @@ export const Carrito = () => {
 
     return (
         <div className={classes.containerCarrito}>
-            {productosCarrito.length === 0 ? (<><CarritoVacio /></>) : (
+            {productosCarrito.length === 0 ? (<CarritoVacio/>) : (
                 <div>
                     <TablaDeProductos productosCarrito={productosCarrito} subtotal={subtotal} />
                     <Order totalPrice={subtotal} />

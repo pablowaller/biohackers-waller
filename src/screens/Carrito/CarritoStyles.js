@@ -31,11 +31,16 @@ export const CarritoStyles = theme => {
             borderStyle: 'solid',
             display: 'inline-block',
             backgroundColor: 'rgb(240, 30, 30)',
-            height: '3em',
-            width: '3em',
-            marginLeft: '1em',
+            height: '2.2em',
             borderRadius: '25px 25px 25px 25px',
             cursor: 'pointer'
+        },
+
+        cruz: {
+            fontFamily: 'Silkscreen',
+            margin: 'auto',
+            color: 'white',
+            textShadow: 'none'
         },
 
         carritoTotal: {
@@ -50,13 +55,6 @@ export const CarritoStyles = theme => {
         finalizar: {
             backgroundColor: 'rgb(233, 30, 240)',
             cursor: 'pointer'
-        },
-
-        cruz: {
-            fontFamily: 'Silkscreen',
-            justifyContent: 'center',
-            color: 'white',
-            textShadow: 'none'
         },
 
         total: {
