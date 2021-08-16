@@ -28,8 +28,13 @@ export const ItemListContainerStyles = theme => {
         },
 
         items: {
-            display: 'flex',
-            flexDirection: 'row'
+            display: 'grid',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: '1em',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            gridTemplateRows: '3fr 3fr 3fr',
+            rowGap: '15px'
         },
 
         loading: {

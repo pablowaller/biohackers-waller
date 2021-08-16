@@ -43,7 +43,7 @@ export const NavbarStyles = theme => {
             flexDirection: 'row',
             listStyleType: 'none',
             marginTop: '-3rem',
-            marginLeft: '85rem'
+            marginLeft: '80%'
         },
 
         navItem: {
@@ -54,7 +54,6 @@ export const NavbarStyles = theme => {
 
         dropdown: {
             marginTop: '2.5%',
-            marginLeft: '-0.5%',
             width: '10em'
         },
 
@@ -78,7 +77,7 @@ export const NavbarStyles = theme => {
                 display: 'flex',
                 flexDirection: 'column',
                 marginTop: '-5em',
-                marginLeft: '-4em'
+                marginLeft: '55%'
             },
 
             dropdown: {
