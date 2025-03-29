@@ -1,7 +1,5 @@
 # **Biohackers e-Commerce transhumanista**
 
-## Me llamo Juan Pablo Waller, y este proyecto de mi autoría es la entrega final para el curso de ReactJS de CoderHouse. 
-
 <img alt="Imagen de Carrito Vacío" src="GifReadMe/GifWebApp.gif" width="700" height="420" />
 
 <br />
